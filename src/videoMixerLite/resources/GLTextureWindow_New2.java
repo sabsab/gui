@@ -130,6 +130,8 @@ public class GLTextureWindow_New2 extends GLWindow
     }
   }
   
+  
+  
 
   public void frameRate(float newRateTarget) {
     frameRateTarget = newRateTarget;
