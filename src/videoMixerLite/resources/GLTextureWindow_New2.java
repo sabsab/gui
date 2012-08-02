@@ -129,6 +129,7 @@ public class GLTextureWindow_New2 extends GLWindow
       frame.setVisible(true);
     }
   }
+  
 
   public void frameRate(float newRateTarget) {
     frameRateTarget = newRateTarget;
