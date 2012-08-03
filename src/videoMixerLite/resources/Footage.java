@@ -64,7 +64,7 @@ public class Footage extends javax.swing.JPanel {
     //public static Footage footageEditable;
     
     
-    private JPanel propertiesPanel;
+    //private JPanel propertiesPanel;
     private FootageProperties footageProperties;
     private MovieProperties movieProperties;
     
@@ -85,7 +85,7 @@ public class Footage extends javax.swing.JPanel {
         movieProperties = new MovieProperties();
         movieProperties.init(this);
         
-        propertiesPanel = footageProperties;
+        //propertiesPanel = footageProperties;
         
         
         displayPanel.addMouseListener(new MouseAdapter() 
@@ -177,14 +177,15 @@ public class Footage extends javax.swing.JPanel {
                     jButton1.setText(movieName);
                     setActive(true);
                     
-                    propertiesPanel = movieProperties;
+                    //propertiesPanel = movieProperties;
+                    footageProperties.setPanel(movieProperties);
                     /*
                     if(footageEditable == this)
                     {
                         core.parent.setProperties(propertiesPanel);
                     } 
                     */
-                    setEditable(true);
+                    //setEditable(true);
                 }
             }
             catch (Exception evt)
@@ -234,10 +235,10 @@ public class Footage extends javax.swing.JPanel {
             movie = null;
         }
         
-        propertiesPanel = footageProperties;
+        //propertiesPanel = footageProperties;
         
-        
-        setEditable(true);
+        footageProperties.clearPanel();
+        //setEditable(true);
         
         /*
         if(footageEditable == this)
@@ -286,6 +287,10 @@ public class Footage extends javax.swing.JPanel {
                             movieName = file.getName();
                             movieName = movieName.substring(0, movieName.lastIndexOf("."));
                         }
+                        else
+                        {
+                            setActive(true);
+                        }
                     }
                     else
                     {
@@ -311,7 +316,8 @@ public class Footage extends javax.swing.JPanel {
         
         if(editable)
         {
-            channel.showPropertiesPanel(propertiesPanel);
+            //channel.showPropertiesPanel(propertiesPanel);
+            channel.showPropertiesPanel(footageProperties);
             jButton1.setBackground(new Color(255, 255, 0));
         }
         else
@@ -345,6 +351,7 @@ public class Footage extends javax.swing.JPanel {
     
     private void setActive(boolean active)
     {
+        //System.out.println("setActive --> " + active);
         jButton1.setEnabled(active);
         footageProperties.setActive(active);
     }

@@ -178,6 +178,7 @@ public class Channel extends javax.swing.JPanel {
         {
             footage[i].setEditable(false);
         }
+        propertiesPanel.clearPanel();
     }
     
     

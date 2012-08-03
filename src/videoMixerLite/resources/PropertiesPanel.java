@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 public class PropertiesPanel extends javax.swing.JPanel {
     
     private Channel channel;
+    private JPanel emptyPanel = new JPanel();
 
     /** Creates new form PropertiesPanel */
     public PropertiesPanel() {
@@ -33,6 +34,11 @@ public class PropertiesPanel extends javax.swing.JPanel {
     public void setPanel(JPanel panel)
     {
         jScrollPane1.setViewportView(panel);
+    }
+    
+    public void clearPanel()
+    {
+        jScrollPane1.setViewportView(emptyPanel);
     }
 
     /** This method is called from within the constructor to
@@ -49,6 +55,7 @@ public class PropertiesPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
 
         jButton1.setText("Close");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
