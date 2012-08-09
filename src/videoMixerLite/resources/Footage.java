@@ -19,12 +19,9 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-//import java.util.Timer;
-//import java.util.TimerTask;
 import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
 //import javax.swing.JPanel;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import processing.core.*;
 
@@ -45,11 +42,13 @@ public class Footage extends javax.swing.JPanel {
     private Core core;
     
     public GLTexture tex;
+    
+    private String footageName;
+    
     //private GLTextureCanvas texCanvas;
     private GSMovie movie;
-    private String movieName;
+    
     private boolean movieReady = false;
-    //private Timer timer;
     
     private boolean previewSetup = false;
     
@@ -63,10 +62,15 @@ public class Footage extends javax.swing.JPanel {
     
     //public static Footage footageEditable;
     
+    private Preview preview;
     
     //private JPanel propertiesPanel;
     private FootageProperties footageProperties;
     private MovieProperties movieProperties;
+    private BitmapProperties bitmapProperties;
+    
+    //private Timer timer;
+    
     
     public Footage() {
         initComponents();
@@ -84,6 +88,9 @@ public class Footage extends javax.swing.JPanel {
         
         movieProperties = new MovieProperties();
         movieProperties.init(this);
+        
+        bitmapProperties = new BitmapProperties();
+        bitmapProperties.init(this);
         
         //propertiesPanel = footageProperties;
         
@@ -106,8 +113,16 @@ public class Footage extends javax.swing.JPanel {
     private void select()
     {
         channel.selectFootage(this);
+        if(movie != null)
+        {
+            movie.play();
+        }
+        else if(tex != null)
+        {
+            core.redraw();
+        }
         
-        movie.play();
+        //core.redraw();
         
         setBorder(BorderFactory.createEtchedBorder(new Color(255, 255, 0), new Color(255, 255, 0)));
     }
@@ -131,6 +146,21 @@ public class Footage extends javax.swing.JPanel {
     public void redraw()
     {      
         //System.out.println("redraw() --> movieReady = " + movieReady);
+        /*
+        if(movie == null  && tex != null && !tex.available() && image != null)
+        {
+            System.out.println("redraw() --> tex.available() = " + tex.available());
+            
+            System.out.println("redraw() --> image = " + image);
+            
+            //System.out.println("redraw() --> tex = " + tex);
+            //tex.putImage(image.get());
+            tex.putImage(image);
+            //tex.updatePixels();
+            //tex.updateTexture();   
+        }
+        */
+        
         
         if(movieReady)
         {
@@ -155,6 +185,7 @@ public class Footage extends javax.swing.JPanel {
                     movie.goToBeginning();
                     movie.pause();
                     
+                    /*
                     image = new PImage();
                     
                     tex.getImage(image);
@@ -173,8 +204,16 @@ public class Footage extends javax.swing.JPanel {
                             select();
                         }
                     });
+                    */
                     
-                    jButton1.setText(movieName);
+                    image = new PImage();
+                    tex.getImage(image);
+                    setPrevew();
+                    
+                    //setPrevew(tex);
+                    
+                    
+                    jButton1.setText(footageName);
                     setActive(true);
                     
                     //propertiesPanel = movieProperties;
@@ -193,14 +232,99 @@ public class Footage extends javax.swing.JPanel {
                  System.out.println("Exception: Footage redraw() previewSetup ----> " + evt);
             }
         }
+        else if(/*movie == null  && */tex != null && !tex.available() && image != null)
+        {
+            //System.out.println("redraw() --> tex.available() = " + tex.available());
+            //System.out.println("redraw() --> image = " + image);
+            
+            tex.putImage(image); 
+            
+            jButton1.setText(footageName);
+            setActive(true);
+                            
+            footageProperties.setPanel(bitmapProperties);
+        }
     }
+    
+    
+    private void setPrevew(/*GLTexture t*/ /*PImage img*/)
+    {
+        /*
+        image = new PImage();
+        t.getImage(image);
+        */
+        
+        
+
+        /*Preview */preview = new Preview(92, 50);
+        preview.setImage(image);
+        //preview.setImage(img);
+        displayPanel.add(preview);
+        preview.init(); 
+        
+        
+        //System.out.println(preview.frameCount);
+
+        preview.addMouseListener(new MouseAdapter() 
+        {
+            @Override
+            public void mousePressed(MouseEvent evt) 
+            {
+                select();
+            }
+        });
+        
+        
+        /*
+        timer = new Timer();
+        timer.schedule(new previewReadyWait(), 1);
+        */
+    }
+    
+    /*
+    class previewReadyWait extends TimerTask
+    {
+
+        @Override
+        public void run() 
+        {
+            //System.out.println(preview.frameCount);
+            
+            timer.cancel();
+            if(preview.frameCount != 0)
+            {
+                
+                if(movie == null)
+                {
+                    tex.putImage(image);
+                }
+                
+                preview.addMouseListener(new MouseAdapter() 
+                {
+                    @Override
+                    public void mousePressed(MouseEvent evt) 
+                    {
+                        select();
+                    }
+                });
+            }
+            else
+            {
+                timer = new Timer();
+                timer.schedule(new previewReadyWait(), 1);
+            }
+        }
+        
+    }
+    */
+    
     
     private void setMovie(String path)
     {
         
         clearMovie();
         
-        movieReady = false;
+        //movieReady = false;
         
         previewSetup = true;
         
@@ -217,7 +341,7 @@ public class Footage extends javax.swing.JPanel {
         movieReady = false;
         previewSetup = false;
         
-        movieName = null;
+        footageName = null;
         
         jButton1.setText("");
         
@@ -234,6 +358,14 @@ public class Footage extends javax.swing.JPanel {
             movie.delete();
             movie = null;
         }
+        
+        
+        if(preview != null)
+        {
+            preview.dispose();
+            preview = null;
+        }
+        
         
         //propertiesPanel = footageProperties;
         
@@ -265,7 +397,7 @@ public class Footage extends javax.swing.JPanel {
     
     
     
-    public void openMovie()
+    public void open()
     {
         SwingUtilities.invokeLater(new Runnable() 
         {
@@ -283,9 +415,32 @@ public class Footage extends javax.swing.JPanel {
                         String name = file.getName().toLowerCase();
                         if (name.endsWith(".avi") || name.endsWith(".mp4") || name.endsWith(".mov")) 
                         {
+                            footageName = file.getName();
+                            footageName = footageName.substring(0, footageName.lastIndexOf("."));
+                            
                             setMovie(file.getAbsolutePath());
-                            movieName = file.getName();
-                            movieName = movieName.substring(0, movieName.lastIndexOf("."));
+                            
+                        }
+                        else if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png"))
+                        {
+                            footageName = file.getName();
+                            footageName = footageName.substring(0, footageName.lastIndexOf("."));
+                            
+                            clearMovie();
+                            
+                            tex.loadTexture(file.getAbsolutePath());
+                            image = tex.get();
+                            setPrevew();
+                            
+                            core.redraw();
+                            
+                            /*
+                            jButton1.setText(footageName);
+                            setActive(true);
+                            
+                            footageProperties.setPanel(bitmapProperties);
+                            */
+                            
                         }
                         else
                         {
@@ -308,6 +463,35 @@ public class Footage extends javax.swing.JPanel {
     
     
     
+    /*
+    class textureReadyWait extends TimerTask
+    {
+
+        @Override
+        public void run() 
+        {
+            //System.out.println(tex.available());
+            //System.out.println(image.getImage());
+            System.out.println(image);
+            
+            timer.cancel();
+            
+            if(tex.available())
+            {
+                
+            }
+            else
+            {
+                //tex.putImage(image);
+                
+                timer = new Timer();
+                timer.schedule(new textureReadyWait(), 1000);
+                
+            }
+            
+        }
+    }
+    */
     
     
     public void setEditable(boolean editable)
@@ -324,26 +508,6 @@ public class Footage extends javax.swing.JPanel {
         {
             jButton1.setBackground(new Color(212, 208, 200));
         }
-        
-        
-        /*
-        if(editable)
-        {
-            if(footageEditable != null)
-            {
-                footageEditable.setEditable(false);
-            }
-            footageEditable = this;
-            jButton1.setBackground(new Color(255, 255, 0));
-            
-            core.parent.setProperties(propertiesPanel);
-        }
-        else
-        {
-            footageEditable = null;
-            jButton1.setBackground(new Color(212, 208, 200));
-        }
-        */
     }
     
     

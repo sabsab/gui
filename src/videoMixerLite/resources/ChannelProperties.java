@@ -579,136 +579,163 @@ public class ChannelProperties extends javax.swing.JPanel {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
 
         channel.blendNum = 1;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
 
         channel.blendNum = 2;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
 
         channel.blendNum = 3;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
 
         channel.blendNum = 4;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
 
         channel.blendNum = 5;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
 
         channel.blendNum = 6;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
 
         channel.blendNum = 7;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton8ActionPerformed
 
     private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
 
         channel.blendNum = 8;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton9ActionPerformed
 
     private void jRadioButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton10ActionPerformed
 
         channel.blendNum = 9;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton10ActionPerformed
 
     private void jRadioButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton11ActionPerformed
 
         channel.blendNum = 10;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton11ActionPerformed
 
     private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
 
         channel.blendNum = 11;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton12ActionPerformed
 
     private void jRadioButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton14ActionPerformed
 
         channel.blendNum = 13;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton14ActionPerformed
 
     private void jRadioButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton13ActionPerformed
 
         channel.blendNum = 12;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton13ActionPerformed
 
     private void jRadioButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton15ActionPerformed
 
         channel.blendNum = 14;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton15ActionPerformed
 
     private void jRadioButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton17ActionPerformed
 
         channel.blendNum = 16;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton17ActionPerformed
 
     private void jRadioButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton16ActionPerformed
 
         channel.blendNum = 15;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton16ActionPerformed
 
     private void jRadioButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton18ActionPerformed
 
         channel.blendNum = 17;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton18ActionPerformed
 
     private void jRadioButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton19ActionPerformed
 
         channel.blendNum = 18;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton19ActionPerformed
 
     private void jRadioButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton20ActionPerformed
 
         channel.blendNum = 19;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton20ActionPerformed
 
     private void jRadioButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton21ActionPerformed
 
         channel.blendNum = 20;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton21ActionPerformed
 
     private void jRadioButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton23ActionPerformed
 
         channel.blendNum = 22;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton23ActionPerformed
 
     private void jRadioButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton22ActionPerformed
 
         channel.blendNum = 21;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton22ActionPerformed
 
     private void jRadioButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton24ActionPerformed
 
         channel.blendNum = 23;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton24ActionPerformed
 
     private void jRadioButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton25ActionPerformed
 
         channel.blendNum = 24;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton25ActionPerformed
 
     private void jRadioButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton26ActionPerformed
 
         channel.blendNum = 25;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton26ActionPerformed
 
     private void jRadioButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton27ActionPerformed
 
         channel.blendNum = 26;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton27ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
 
         channel.blendNum = 0;
+        channel.core.redraw();
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

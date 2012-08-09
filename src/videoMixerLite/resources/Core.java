@@ -15,7 +15,7 @@ import codeanticode.glgraphics.*;
 import codeanticode.gsvideo.*;
 import java.util.Timer;
 import java.util.TimerTask;
-//import javax.swing.JFrame;
+import javax.swing.JFrame;
 
 
 public class Core extends PApplet 
@@ -33,8 +33,9 @@ public class Core extends PApplet
     
     private CoreProperties coreProperties;
     
-    /*
+    
     private JFrame outputFrame;
+    /*
     private GLTextureCanvas outputCanvas;
     */
     
@@ -146,12 +147,47 @@ public class Core extends PApplet
         texWin = new GLTextureWindow_New2(this, 1050, 0, 320, 180);
         //texWin = new GLTextureWindow(this, 1920, 0, 1920, 750);
         texWin.setTexture(texResult);
+        //texWin.hide();
+        
+        /*
+        outputFrame = new JFrame();
+        outputFrame.setVisible(true);
+        outputFrame.setSize(320, 180);
+        outputFrame.setLocation(1000, 0);
+        //outputFrame.getContentPane().add(texWin.getFrm());
+        //System.out.println(outputFrame.isActive());
+        timer = new Timer();
+        timer.schedule(new frmReadyWait(), 1);
+        */
+        
         
         timer = new Timer();
         timer.schedule(new texWinReadyWait(), 1);
         
         
     }
+    
+    
+    /*
+    class frmReadyWait extends TimerTask
+    {
+        @Override
+        public void run()
+        {
+            timer.cancel();
+            if(outputFrame.isActive())
+            {
+                outputFrame.getContentPane().add(texWin.getFrm());
+            }
+            else
+            {
+                timer = new Timer();
+                timer.schedule(new frmReadyWait(), 1);
+            }
+            
+        }
+    }
+    */
     
     
     class texWinReadyWait extends TimerTask
@@ -210,6 +246,8 @@ public class Core extends PApplet
         for(int i=0; i<channel.length; i++)
         {
             Channel c = channel[i];
+            c.redraw();
+            
             Footage f = c.footageSelected;
             if(f != null)
             {
@@ -222,8 +260,11 @@ public class Core extends PApplet
                 filterBlend[c.blendNum].apply(texBlend, texResult);
                 
                 texBase = texResult;
+                
+                //System.out.println("f.tex = " + f.tex + "   width = " + f.tex.width);
+                //texResult = f.tex;
             }
-            c.redraw();
+            //c.redraw();
         }
         
         
@@ -248,14 +289,6 @@ public class Core extends PApplet
         if(bln)
         {
             texWin.show();
-            /*
-            texWin = new GLTextureWindow(this, 0, 0, 320, 180);
-            //texWin = new GLTextureWindow(this, 1920, 0, 1920, 750);
-            texWin.setTexture(texResult);
-
-            timer = new Timer();
-            timer.schedule(new texWinReadyWait(), 1);
-            */
         }
         else
         {

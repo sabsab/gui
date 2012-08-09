@@ -9,11 +9,12 @@ import codeanticode.glgraphics.*;
 import java.awt.Frame;
 import javax.media.opengl.*;
 import com.sun.opengl.util.FPSAnimator;
+import javax.swing.JInternalFrame;
 /**
  *
  * @author User
  */
-public class GLTextureWindow_New2 extends GLWindow  
+public class GLTextureWindow_New2 extends GLWindow 
 {
     protected PApplet parent;
     protected String name;
@@ -21,7 +22,8 @@ public class GLTextureWindow_New2 extends GLWindow
     protected boolean resizable;
     protected GLRenderer renderer;
     protected GLCanvas canvas;
-    protected Frame frame;  
+    protected Frame frame;
+protected JInternalFrame frm;
     protected GLContext mainContext;
     protected GLCapabilities mainCaps;  
     protected GLTexture outTex;
@@ -154,8 +156,20 @@ public class GLTextureWindow_New2 extends GLWindow
    
     canvas.addGLEventListener(renderer);
     frame.add(canvas);
+    
+    frm = new JInternalFrame();
+    frm.setVisible(true);
+    frm.add(canvas);
+    frame.add(frm);
+    
   }
- 
+  
+  /*
+  public JInternalFrame getFrm()
+  {
+      return frm;
+  }
+  */
   
   public void delete() {
     if (frame != null) {

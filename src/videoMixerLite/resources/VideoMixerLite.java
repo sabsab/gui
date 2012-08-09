@@ -155,19 +155,35 @@ public class VideoMixerLite extends javax.swing.JFrame {
             }
         });
 
+        channel1.setPreferredSize(new java.awt.Dimension(160, 679));
+
         propertiesPanel1.setVisible(false);
+
+        channel2.setPreferredSize(new java.awt.Dimension(160, 679));
 
         propertiesPanel2.setVisible(false);
 
+        channel3.setPreferredSize(new java.awt.Dimension(160, 679));
+
         propertiesPanel3.setVisible(false);
+
+        channel4.setPreferredSize(new java.awt.Dimension(160, 679));
 
         propertiesPanel4.setVisible(false);
 
+        channel5.setPreferredSize(new java.awt.Dimension(160, 679));
+
         propertiesPanel5.setVisible(false);
+
+        channel6.setPreferredSize(new java.awt.Dimension(160, 679));
 
         propertiesPanel6.setVisible(false);
 
+        channel7.setPreferredSize(new java.awt.Dimension(160, 679));
+
         propertiesPanel7.setVisible(false);
+
+        channel8.setPreferredSize(new java.awt.Dimension(160, 679));
 
         propertiesPanel8.setVisible(false);
 

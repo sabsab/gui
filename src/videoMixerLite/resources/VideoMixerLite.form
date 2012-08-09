@@ -164,6 +164,11 @@
               </Layout>
               <SubComponents>
                 <Component class="videoMixerLite.resources.Channel" name="channel1">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel1">
                   <AuxValues>
@@ -171,6 +176,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel2">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel2">
                   <AuxValues>
@@ -178,6 +188,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel3">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel3">
                   <AuxValues>
@@ -185,6 +200,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel4">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel4">
                   <AuxValues>
@@ -192,6 +212,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel5">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel5">
                   <AuxValues>
@@ -199,6 +224,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel6">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel6">
                   <AuxValues>
@@ -206,6 +236,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel7">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel7">
                   <AuxValues>
@@ -213,6 +248,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="videoMixerLite.resources.Channel" name="channel8">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[160, 679]"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel8">
                   <AuxValues>
