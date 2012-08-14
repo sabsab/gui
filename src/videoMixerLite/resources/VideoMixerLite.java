@@ -68,6 +68,9 @@ public class VideoMixerLite extends javax.swing.JFrame {
         
         for(int i=0; i<channel.length; i++)
         {
+            channel[i].num = i;
+            channel[i].setChannelProperties();
+            //channel[i].setChannelName("Channel " + (i + 1));
             channel[i].setPreview();
         }
         
@@ -157,10 +160,12 @@ public class VideoMixerLite extends javax.swing.JFrame {
 
         channel1.setPreferredSize(new java.awt.Dimension(160, 679));
 
+        propertiesPanel1.setPreferredSize(new java.awt.Dimension(300, 368));
         propertiesPanel1.setVisible(false);
 
         channel2.setPreferredSize(new java.awt.Dimension(160, 679));
 
+        propertiesPanel2.setPreferredSize(new java.awt.Dimension(300, 368));
         propertiesPanel2.setVisible(false);
 
         channel3.setPreferredSize(new java.awt.Dimension(160, 679));

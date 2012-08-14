@@ -27,6 +27,8 @@ public class Channel extends javax.swing.JPanel {
     
     public Core core;
     
+    public int num;
+    
     private Footage[] footage;
     
     public Footage footageSelected;
@@ -37,61 +39,122 @@ public class Channel extends javax.swing.JPanel {
     
     public int blendNum = 0;
     
+    public boolean isMaskLayer = false;
+    public boolean isMaskOutput = false;
+    public int maskChannel = -1;
+    
+    
     private PropertiesPanel propertiesPanel;
-    private ChannelProperties channelProperties;
+    public ChannelProperties channelProperties;
+    
+    
+    
+    
     
     
     /** Creates new form Channel */
     public Channel() {
         initComponents();
-        /*
-        footage = new Footage[]
-        {
-            footage1, 
-            footage2, 
-            footage3, 
-            footage4, 
-            footage5, 
-            footage6, 
-            footage7, 
-            footage8
-        };
-        */
-        /*
-        preview = new Preview(132, 73);
-        //preview.setImage(image);
-        displayPanel.add(preview);
-        preview.setPanel();
-        */
-        //setPreview();
     }
+    
+    
+    public void setPropertiesPanel(PropertiesPanel panel)
+    {
+        propertiesPanel = panel;
+        propertiesPanel.init(this);
+    }
+    
+    
+    public void setChannelProperties()
+    {
+        channelProperties = new ChannelProperties();
+        channelProperties.init(this);
+    }
+    
+    
+    
     
     
     public void setPreview()
     {
         preview = new Preview(134, 73);
-        //preview.setImage(image);
         displayPanel.add(preview);
         preview.init();
     }
     
     
-    public void setPropertiesPanel(PropertiesPanel p)
+    
+    private void setChannelName(String name)
     {
-        propertiesPanel = p;
-        propertiesPanel.init(this);
+        jLabel1.setText(name);
+        channelProperties.setChannelName(name);
+        for(int i=0; i<core.channel.length; i++)
+        {
+            core.channel[i].channelProperties.channelMaskCheckBox[num].setText(name);
+        }
+    }
+    
+    
+    public void setMaskToChannel(int channelNum)
+    {
+        isMaskLayer = true;
+        core.channel[channelNum].maskChannel = num;
+        jPanel2.setVisible(false);
+    }
+    
+    public void resetMaskToChannel(int channelNum)
+    {
+        for(int i=0; i<=channelNum; i++)
+        {
+            if(core.channel[i].maskChannel == num)
+            {
+                core.channel[i].maskChannel = -1;
+            }
+        }
+        
+        isMaskLayer = false;
+        for(int i=channelNum+1; i<num; i++)
+        {
+            if(core.channel[i].maskChannel == num)
+            {
+                isMaskLayer = true;
+                break;
+            }
+        }
+        
+        if(!isMaskLayer)
+        {
+            jPanel2.setVisible(true);
+        }
+    }
+    
+    
+    public void setOutputMask()
+    {
+        isMaskOutput = true;
+        jPanel2.setVisible(false);
+    }
+    
+    public void resetOutputMask()
+    {
+        isMaskOutput = false;
+        jPanel2.setVisible(true);
     }
     
     
     public void init(Core core)
     {
         
-        //jPanel5.setVisible(false);
-        
         this.core = core;
         
-        channelProperties = new ChannelProperties();
-        channelProperties.init(this);
+        
+        setChannelName("Channel " + (num + 1));
+        
+        //System.out.println("Channel  " + num);
+        
+        //setChannelProperties();
+        channelProperties.setMaskCheckBoxes();
+        
         
         footage = new Footage[]
         {
@@ -105,18 +168,12 @@ public class Channel extends javax.swing.JPanel {
             footage8
         };
         
-        /*
-        preview = new Preview(132, 73);
-        //preview.setImage(image);
-        displayPanel.add(preview);
-        preview.setPanel();
-        */
-        
         
         for(int i=0; i<footage.length; i++)
         {
-            footage[i].init(/*core, */this);
+            footage[i].init(this);
         }
+        
     }
     
     
@@ -225,6 +282,8 @@ public class Channel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         opacitySlider = new javax.swing.JSlider();
         jButton1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(158, 679));
         setRequestFocusEnabled(false);
@@ -324,7 +383,7 @@ public class Channel extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(opacitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+            .addComponent(opacitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
         );
 
         jButton1.setText("Properties");
@@ -335,19 +394,38 @@ public class Channel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 157, Short.MAX_VALUE)
+        );
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(" ");
+        jLabel1.setFocusable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(displayFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(displayFrame, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -359,8 +437,13 @@ public class Channel extends javax.swing.JPanel {
                 .addComponent(displayFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -406,9 +489,11 @@ public class Channel extends javax.swing.JPanel {
     private videoMixerLite.resources.Footage footage7;
     private videoMixerLite.resources.Footage footage8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider opacitySlider;

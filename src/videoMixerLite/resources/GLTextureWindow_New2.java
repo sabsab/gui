@@ -155,13 +155,16 @@ protected JInternalFrame frm;
     renderer = new GLRenderer();
    
     canvas.addGLEventListener(renderer);
-    frame.add(canvas);
     
+    
+    /*
     frm = new JInternalFrame();
     frm.setVisible(true);
     frm.add(canvas);
     frame.add(frm);
+    */
     
+    frame.add(canvas);
   }
   
   /*

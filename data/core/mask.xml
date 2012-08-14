@@ -1,0 +1,10 @@
+<filter name="Mask">
+    <description>Alpha Mask</description>
+    <fragment>mask.glsl</fragment>
+    <textures input="2" output="1">
+        <intexture type="sampler2d" name="bottomSampler" label="source">0</intexture>
+        <intexture type="sampler2d" name="maskSampler" label="mask">1</intexture>
+    </textures>
+</filter>
+
+

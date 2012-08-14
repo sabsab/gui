@@ -20,13 +20,15 @@ import javax.swing.JFrame;
 
 public class Core extends PApplet 
 {
-    private Channel[] channel;
+    public Channel[] channel;
     
     private int w = 100, h = 100;
     
+    private GLTextureFilter filterMask;
     private GLTextureFilter[] filterBlend = new GLTextureFilter[27];
     
-    private GLTexture texEmpty, texBG, texBase, texResult;//, texOutput;
+    private GLTexture texEmpty, texBG, texBase, texMasked, texResult;//texOutput;
+    private GLTexture[] texMask = new GLTexture[2];
     private GLTexture[] texBlend = new GLTexture[2];
     
     public VideoMixerLite parent;
@@ -74,8 +76,13 @@ public class Core extends PApplet
         
         //System.out.println("Put \"data\" folder here ---->  " + this.sketchPath);
         
+        filterMask = new GLTextureFilter(this, "core/mask.xml");
+        //filterMask = new GLTextureFilter(this, "blends/!.xml");
         
-        filterBlend[0] = new GLTextureFilter(this, "blends/BlendPremultiplied.xml");
+        //filterBlend[0] = new GLTextureFilter(this, "blends/!.xml");
+        
+        
+        filterBlend[0] = new GLTextureFilter(this, "blends/BlendUnmultiplied.xml");
         
         filterBlend[2] = new GLTextureFilter(this, "blends/BlendDarken.xml");
         filterBlend[3] = new GLTextureFilter(this, "blends/BlendMultiply.xml");
@@ -102,7 +109,7 @@ public class Core extends PApplet
         texBG = new GLTexture(this);
         texBase = new GLTexture(this);
         texResult = new GLTexture(this, 1280, 320);
-        
+        texMasked = new GLTexture(this, 1280, 320);
         
         
         
@@ -238,43 +245,83 @@ public class Core extends PApplet
     public void draw()
     {
         
+        background(0);
         
-        texBase = texBG;
+        texBase = texEmpty;//texBG;
         //texResult.clear(0);// = texBG;
         texResult.copy(texBG);
+        //texResult.copy(texEmpty);
+        
         
         for(int i=0; i<channel.length; i++)
         {
-            Channel c = channel[i];
-            c.redraw();
-            
-            Footage f = c.footageSelected;
-            if(f != null)
-            {
-                //texResult.clear(0);// = texEmpty;
-                texResult.copy(texEmpty);
-                texBlend[0] = texBase;
-                texBlend[1] = f.tex;
-                
-                filterBlend[c.blendNum].setParameterValue("Opacity", c.opacity);
-                filterBlend[c.blendNum].apply(texBlend, texResult);
-                
-                texBase = texResult;
-                
-                //System.out.println("f.tex = " + f.tex + "   width = " + f.tex.width);
-                //texResult = f.tex;
-            }
-            //c.redraw();
+            channel[i].redraw();
         }
         
         
-        image(texResult, 0, 0, w, h);
         
-        /*
-        PImage img = new PImage();
-        texResult.getImage(img);
-        System.out.println(img.width);
-        */
+        
+        
+        for(int i=0; i<channel.length; i++)
+        {
+            
+            Channel ch = channel[i];
+            //ch.redraw();
+            
+            
+            
+            Footage f = ch.footageSelected;
+            
+            if(ch.isMaskOutput)
+            {
+                texResult.copy(texEmpty);
+                texMask[0] = texBase;
+                
+                if(ch.footageSelected == null)
+                {
+                    texMask[1] = texEmpty;
+                }
+                else
+                {
+                    texMask[1] = f.tex;
+                }
+                
+                filterMask.apply(texMask, texResult); 
+            }
+            else if(f != null && !ch.isMaskLayer)
+            {
+                
+                texResult.copy(texEmpty);
+                texBlend[0] = texBase;
+                
+                if(ch.maskChannel == -1)
+                {
+                    texBlend[1] = f.tex; 
+                }
+                else
+                {
+                    if(channel[ch.maskChannel].footageSelected == null)
+                    {
+                        texBlend[1] = texEmpty;
+                    }
+                    else
+                    {
+                        texMasked.copy(texEmpty);
+                        texMask[0] = f.tex;
+                        texMask[1] = channel[ch.maskChannel].footageSelected.tex;
+                        filterMask.apply(texMask, texMasked);
+                        texBlend[1] = texMasked;
+                    }
+                }
+                
+                filterBlend[ch.blendNum].setParameterValue("Opacity", ch.opacity);
+                filterBlend[ch.blendNum].apply(texBlend, texResult);
+                
+                texBase = texResult;
+            }
+        }
+        
+        image(texResult, 0, 0, w, h);
         
         
         
@@ -289,6 +336,7 @@ public class Core extends PApplet
         if(bln)
         {
             texWin.show();
+            redraw();
         }
         else
         {
@@ -303,27 +351,4 @@ public class Core extends PApplet
         movie.read();
         redraw();
     }
-    
-    
-    /*
-    @Override
-    public void mouseClicked() 
-    {
-        setProperties();
-    }
-    */
-    
-    /*
-    public void setProperties()
-    {
-        if(Footage.footageEditable != null)
-        {
-            Footage.footageEditable.setEditable(false);
-        }
-        parent.setProperties(coreProperties);
-        
-    }
-    */
-    
-    
 }
