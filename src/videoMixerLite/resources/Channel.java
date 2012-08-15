@@ -46,8 +46,10 @@ public class Channel extends javax.swing.JPanel {
     
     private PropertiesPanel propertiesPanel;
     public ChannelProperties channelProperties;
-    public boolean isPropertiesPanelOpen = false;
     
+    
+    //public boolean isPropertiesPanelOpen = false;
+    public JPanel displayedPopertiesPanel;
     
     
     
@@ -210,7 +212,8 @@ public class Channel extends javax.swing.JPanel {
     
     public void showPropertiesPanel(JPanel panel)
     {
-        isPropertiesPanelOpen = true;
+        //isPropertiesPanelOpen = true;
+        displayedPopertiesPanel = panel;
         
         clearPropertiesPanel();
         propertiesPanel.setPanel(panel);
@@ -224,7 +227,8 @@ public class Channel extends javax.swing.JPanel {
     
     public void hidePropertiesPanel()
     {
-        isPropertiesPanelOpen = false;
+        //isPropertiesPanelOpen = false;
+        displayedPopertiesPanel = null;
         
         clearPropertiesPanel();
         propertiesPanel.setVisible(false);
@@ -475,7 +479,8 @@ public class Channel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(isPropertiesPanelOpen)
+        //if(isPropertiesPanelOpen)
+        if(displayedPopertiesPanel == channelProperties)
         {
             hidePropertiesPanel();
         }
