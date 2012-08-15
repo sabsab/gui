@@ -504,11 +504,8 @@ public class Footage extends javax.swing.JPanel {
     
     public void setEditable(boolean editable)
     {
-        //editable = bln;
-        
         if(editable)
         {
-            //channel.showPropertiesPanel(propertiesPanel);
             channel.showPropertiesPanel(footageProperties);
             jButton1.setBackground(new Color(255, 255, 0));
         }
@@ -600,8 +597,15 @@ public class Footage extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(channel.isPropertiesPanelOpen)
+        {
+            channel.hidePropertiesPanel();
+        }
+        else
+        {
+            setEditable(true);
+        }
         
-        setEditable(true);
         //channel.showPropertiesPanel(this);
         
     }//GEN-LAST:event_jButton1ActionPerformed

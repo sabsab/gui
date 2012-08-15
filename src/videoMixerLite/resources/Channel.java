@@ -46,7 +46,7 @@ public class Channel extends javax.swing.JPanel {
     
     private PropertiesPanel propertiesPanel;
     public ChannelProperties channelProperties;
-    
+    public boolean isPropertiesPanelOpen = false;
     
     
     
@@ -210,6 +210,7 @@ public class Channel extends javax.swing.JPanel {
     
     public void showPropertiesPanel(JPanel panel)
     {
+        isPropertiesPanelOpen = true;
         
         clearPropertiesPanel();
         propertiesPanel.setPanel(panel);
@@ -223,6 +224,8 @@ public class Channel extends javax.swing.JPanel {
     
     public void hidePropertiesPanel()
     {
+        isPropertiesPanelOpen = false;
+        
         clearPropertiesPanel();
         propertiesPanel.setVisible(false);
         jSeparator1.setVisible(true);
@@ -471,9 +474,16 @@ public class Channel extends javax.swing.JPanel {
     }//GEN-LAST:event_opacitySliderStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        showPropertiesPanel(channelProperties);
-        jButton1.setBackground(new Color(255, 255, 0));
+
+        if(isPropertiesPanelOpen)
+        {
+            hidePropertiesPanel();
+        }
+        else
+        {
+            showPropertiesPanel(channelProperties);
+            jButton1.setBackground(new Color(255, 255, 0));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

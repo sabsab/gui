@@ -173,7 +173,7 @@
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel1">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[300, 368]"/>
+                      <Dimension value="[308, 368]"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -190,7 +190,7 @@
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel2">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[300, 368]"/>
+                      <Dimension value="[308, 368]"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -205,6 +205,11 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel3">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[308, 368]"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel3.setVisible(false);"/>
                   </AuxValues>
@@ -217,6 +222,11 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel4">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[308, 368]"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel4.setVisible(false);"/>
                   </AuxValues>
