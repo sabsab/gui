@@ -13,6 +13,7 @@ package videoMixerLite.resources;
 import processing.core.*;
 import codeanticode.glgraphics.*;
 import codeanticode.gsvideo.*;
+import java.text.StringCharacterIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JFrame;
@@ -23,6 +24,13 @@ public class Core extends PApplet
     public Channel[] channel;
     
     private int w = 100, h = 100;
+    
+    /*
+    private int outX = 1050;
+    private int outY = 0;
+    private int outWidth = 320;
+    private int outHeight = 180;
+    */
     
     private GLTextureFilter filterMask;
     private GLTextureFilter[] filterBlend = new GLTextureFilter[27];
@@ -152,7 +160,6 @@ public class Core extends PApplet
         
         
         texWin = new GLTextureWindow_New2(this, 1050, 0, 320, 180);
-        //texWin = new GLTextureWindow(this, 1920, 0, 1920, 750);
         texWin.setTexture(texResult);
         //texWin.hide();
         
@@ -336,6 +343,8 @@ public class Core extends PApplet
         if(bln)
         {
             texWin.show();
+            //texWin.initImpl(1050, 0, w, h);
+            
             redraw();
         }
         else
@@ -345,10 +354,57 @@ public class Core extends PApplet
     }
     
     
+    
+    public void outputSetX(int value)
+    {
+        texWin.setLocation(value, texWin.getY());
+    }
+    
+    
+    public void outputSetY(int value)
+    {
+        texWin.setLocation(texWin.getX(), value);
+    }
+    
+    
+    /*
+    public void outputSetSize(int w, int h)
+    {
+        
+    }
+    */
+    
     public void movieEvent(GSMovie movie)
     {
         //System.out.println("movieEvent");
         movie.read();
         redraw();
     }
+    
+    
+    public Integer integerValidator(String str) 
+    {
+        String outString = "";
+        StringCharacterIterator iterator = new StringCharacterIterator(str);
+        char character = iterator.current();
+        while (character != StringCharacterIterator.DONE) 
+        {
+            boolean isValidChar = Character.isDigit(character) || character == '-';
+            
+            if(isValidChar)
+            {
+                outString += character;
+            }
+            
+            character = iterator.next();
+        }
+        
+        if("-".equals(outString))
+        {
+            outString = "0";
+        }
+        
+        return Integer.parseInt(outString);
+    } 
+    
 }

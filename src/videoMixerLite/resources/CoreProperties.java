@@ -10,6 +10,7 @@
  */
 package videoMixerLite.resources;
 
+
 /**
  *
  * @author User
@@ -27,6 +28,34 @@ public class CoreProperties extends javax.swing.JPanel {
     {
         this.core = core;
     }
+    
+    /*
+    private String integerValidator(String str) 
+    {
+        String outString = "";
+        StringCharacterIterator iterator = new StringCharacterIterator(str);
+        char character = iterator.current();
+        while (character != StringCharacterIterator.DONE) 
+        {
+            boolean isValidChar = Character.isDigit(character) || character == '-';
+            
+            if(isValidChar)
+            {
+                outString += character;
+            }
+            
+            character = iterator.next();
+        }
+        
+        if("-".equals(outString))
+        {
+            outString = "0";
+        }
+        
+        return outString;
+    } 
+    */
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -50,10 +79,15 @@ public class CoreProperties extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("X");
 
-        jTextField1.setText("0");
+        jTextField1.setText("1050");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
             }
         });
 
@@ -61,6 +95,16 @@ public class CoreProperties extends javax.swing.JPanel {
         jLabel2.setText("Y");
 
         jTextField2.setText("0");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
 
         jCheckBox1.setText("Show Output");
         jCheckBox1.setFocusable(false);
@@ -73,11 +117,13 @@ public class CoreProperties extends javax.swing.JPanel {
         jLabel3.setText("Width");
 
         jTextField3.setText("320");
+        jTextField3.setEnabled(false);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Height");
 
-        jTextField4.setText("160");
+        jTextField4.setText("180");
+        jTextField4.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -127,15 +173,37 @@ public class CoreProperties extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-        //System.out.println(jCheckBox1.isSelected());
+
         core.showOutput(jCheckBox1.isSelected());
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println(Integer.parseInt(jTextField1.getText()));
+
+        Integer x = core.integerValidator(jTextField1.getText());
+        core.outputSetX(x);
+        jTextField1.setText(x.toString());
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+
+        Integer x = core.integerValidator(jTextField1.getText());
+        core.outputSetX(x);
+        jTextField1.setText(x.toString());
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+
+        Integer y = core.integerValidator(jTextField2.getText());
+        core.outputSetY(y);
+        jTextField2.setText(y.toString());
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+
+        Integer y = core.integerValidator(jTextField2.getText());
+        core.outputSetY(y);
+        jTextField2.setText(y.toString());
+    }//GEN-LAST:event_jTextField2FocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBox1;

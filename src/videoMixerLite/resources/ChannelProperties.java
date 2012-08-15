@@ -90,6 +90,10 @@ public class ChannelProperties extends javax.swing.JPanel {
         jTextField1.setText(name);
     }
     
+    private void renameChannel(String name)
+    {
+        channel.setChannelName(name);
+    }
     
     private void setChannelBlend(int blendNum)
     {
@@ -210,6 +214,7 @@ public class ChannelProperties extends javax.swing.JPanel {
         }
     }
     
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -265,6 +270,17 @@ public class ChannelProperties extends javax.swing.JPanel {
         jCheckBox9 = new javax.swing.JCheckBox();
 
         jLabel1.setText("Channel Name:");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1151,6 +1167,16 @@ public class ChannelProperties extends javax.swing.JPanel {
             resetOutputMask();
         }
     }//GEN-LAST:event_jCheckBox9ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+
+        renameChannel(jTextField1.getText());
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+
+        renameChannel(jTextField1.getText());
+    }//GEN-LAST:event_jTextField1FocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

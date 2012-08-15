@@ -84,7 +84,7 @@ public class Channel extends javax.swing.JPanel {
     
     
     
-    private void setChannelName(String name)
+    public void setChannelName(String name)
     {
         jLabel1.setText(name);
         channelProperties.setChannelName(name);
