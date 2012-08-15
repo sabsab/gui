@@ -214,10 +214,15 @@ public class Footage extends javax.swing.JPanel {
                     
                     
                     jButton1.setText(footageName);
+                    
+                    //System.out.println("footageName --> " + footageName);
+                    
                     setActive(true);
                     
                     //propertiesPanel = movieProperties;
                     footageProperties.setPanel(movieProperties);
+                    
+                    
                     /*
                     if(footageEditable == this)
                     {
@@ -415,18 +420,21 @@ public class Footage extends javax.swing.JPanel {
                         String name = file.getName().toLowerCase();
                         if (name.endsWith(".avi") || name.endsWith(".mp4") || name.endsWith(".mov")) 
                         {
+                            setMovie(file.getAbsolutePath());
+                            
                             footageName = file.getName();
                             footageName = footageName.substring(0, footageName.lastIndexOf("."));
-                            
-                            setMovie(file.getAbsolutePath());
                             
                         }
                         else if (name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png"))
                         {
+                            
+                            clearMovie();
+                            
                             footageName = file.getName();
                             footageName = footageName.substring(0, footageName.lastIndexOf("."));
                             
-                            clearMovie();
+                            
                             
                             tex.loadTexture(file.getAbsolutePath());
                             image = tex.get();
