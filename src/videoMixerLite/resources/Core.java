@@ -32,6 +32,12 @@ public class Core extends PApplet
     private int outHeight = 180;
     */
     
+    
+    private Effect[] effect;
+    
+    private GLTextureFilter[] filterEffect = new GLTextureFilter[1];
+    
+    
     private GLTextureFilter filterMask;
     private GLTextureFilter[] filterBlend = new GLTextureFilter[27];
     
@@ -84,10 +90,13 @@ public class Core extends PApplet
         
         //System.out.println("Put \"data\" folder here ---->  " + this.sketchPath);
         
-        filterMask = new GLTextureFilter(this, "core/mask.xml");
-        //filterMask = new GLTextureFilter(this, "blends/!.xml");
         
-        //filterBlend[0] = new GLTextureFilter(this, "blends/!.xml");
+        
+        effect = new Effect[0];
+        
+        
+        filterMask = new GLTextureFilter(this, "core/mask.xml");
+        
         
         
         filterBlend[0] = new GLTextureFilter(this, "blends/BlendUnmultiplied.xml");
@@ -111,7 +120,25 @@ public class Core extends PApplet
         filterBlend[25] = new GLTextureFilter(this, "blends/BlendColor.xml");
         filterBlend[26] = new GLTextureFilter(this, "blends/BlendLuminance.xml");
         
+        
+        
+        
+        
+        filterEffect[0] = new GLTextureFilter(this, "effects/RGBA.xml");
+        
+        
+        
+        
         //System.out.println(filterBlend[0].getDescription());
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         texEmpty = new GLTexture(this);
         texBG = new GLTexture(this);
@@ -324,8 +351,27 @@ public class Core extends PApplet
                 filterBlend[ch.blendNum].setParameterValue("Opacity", ch.opacity);
                 filterBlend[ch.blendNum].apply(texBlend, texResult);
                 
+                //System.out.println(f.effect.length);
+                for(int j=0; j<f.effect.length; j++)
+                {
+                    f.effect[j].getFilterEffect().apply(texResult, texResult);
+                }
+                
+                
+                //System.out.println(ch.effect.length);
+                for(int j=0; j<ch.effect.length; j++)
+                {
+                    ch.effect[j].getFilterEffect().apply(texResult, texResult);
+                }
+                
+                
                 texBase = texResult;
             }
+        }
+        
+        for(int j=0; j<effect.length; j++)
+        {
+            effect[j].getFilterEffect().apply(texResult, texResult);
         }
         
         image(texResult, 0, 0, w, h);
@@ -380,6 +426,50 @@ public class Core extends PApplet
         movie.read();
         redraw();
     }
+    
+    
+    public GLTextureFilter getFilterEffect(int effectNum)
+    {
+        return filterEffect[effectNum];
+    }
+    
+    
+    
+    public void addEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length + 1];
+        /*
+        for(int i = 0; i < temp.length; i++)
+        {
+            effect[i] = temp[i];
+        }
+        */
+        System.arraycopy(temp, 0, effect, 0, temp.length);
+        effect[temp.length] = eff;
+        
+        //System.out.println("Core addEffect: " + effect.length);
+    }
+    
+    
+    public void removeEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length - 1];
+        int j = 0;
+        for(int i = 0; i < temp.length; i++)
+        {
+          if(temp[i] != eff)
+          {
+            effect[j++] = temp[i];
+          }
+        }
+        
+        //System.out.println("Core removeEffect: " + effect.length);
+    }
+    
+    
+    
     
     
     public Integer integerValidator(String str) 

@@ -171,11 +171,6 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel1">
-                  <Properties>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[308, 368]"/>
-                    </Property>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel1.setVisible(false);"/>
                   </AuxValues>
@@ -188,11 +183,6 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel2">
-                  <Properties>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[308, 368]"/>
-                    </Property>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel2.setVisible(false);"/>
                   </AuxValues>
@@ -205,11 +195,6 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel3">
-                  <Properties>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[308, 368]"/>
-                    </Property>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel3.setVisible(false);"/>
                   </AuxValues>
@@ -222,11 +207,6 @@
                   </Properties>
                 </Component>
                 <Component class="videoMixerLite.resources.PropertiesPanel" name="propertiesPanel4">
-                  <Properties>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[308, 368]"/>
-                    </Property>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="propertiesPanel4.setVisible(false);"/>
                   </AuxValues>
@@ -304,10 +284,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSeparator1" alignment="1" pref="299" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="coreProperties1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="coreProperties1" alignment="0" pref="299" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -317,9 +294,8 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="coreProperties1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Component id="coreProperties1" pref="480" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

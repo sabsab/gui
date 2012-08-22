@@ -21,7 +21,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
-          <Component id="jTabbedPane1" alignment="0" pref="200" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" pref="204" max="32767" attributes="0"/>
+          <Component id="effectsPanel1" alignment="0" pref="204" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -29,7 +30,9 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="425" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="251" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Component id="effectsPanel1" pref="168" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,7 +47,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField1" pref="103" max="32767" attributes="0"/>
+                  <Component id="jTextField1" pref="107" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -99,35 +102,38 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jRadioButton3" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton2" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton4" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton5" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton6" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton7" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton8" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton9" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton10" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton11" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton12" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton13" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton14" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton15" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton16" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton17" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton18" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton19" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton20" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton21" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton22" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton23" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton24" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton25" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton26" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton27" alignment="0" pref="187" max="32767" attributes="1"/>
-                          <Component id="jRadioButton1" alignment="0" pref="187" max="32767" attributes="1"/>
+                          <Component id="jRadioButton3" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton2" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton4" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton5" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton6" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton7" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton8" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton9" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton10" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton11" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton12" alignment="0" pref="93" max="32767" attributes="1"/>
+                          <Component id="jRadioButton1" alignment="0" pref="93" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jRadioButton13" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton14" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton15" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton16" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton17" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton18" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton19" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton20" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton21" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton22" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton23" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton24" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton25" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton26" alignment="0" pref="92" max="32767" attributes="1"/>
+                          <Component id="jRadioButton27" alignment="0" pref="92" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -135,60 +141,65 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton5" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton6" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton7" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton8" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton9" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton10" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton11" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton12" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton13" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton14" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton15" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton16" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton17" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton18" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton19" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton20" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton21" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton22" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton23" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton24" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton25" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton26" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Component id="jRadioButton27" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jRadioButton13" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton14" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton15" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton16" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton17" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton18" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton19" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton20" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton21" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton22" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton23" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton24" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton25" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton26" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton27" min="-2" pref="13" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jRadioButton1" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton2" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton3" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton4" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton5" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton6" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton7" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton8" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton9" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton10" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton11" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jRadioButton12" min="-2" pref="13" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -909,7 +920,7 @@
                           <Component id="jCheckBox8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBox9" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="130" max="32767" attributes="0"/>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -934,7 +945,7 @@
                       <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="168" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1025,5 +1036,7 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="videoMixerLite.resources.EffectsPanel" name="effectsPanel1">
+    </Component>
   </SubComponents>
 </Form>

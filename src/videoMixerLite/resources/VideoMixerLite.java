@@ -160,22 +160,18 @@ public class VideoMixerLite extends javax.swing.JFrame {
 
         channel1.setPreferredSize(new java.awt.Dimension(160, 679));
 
-        propertiesPanel1.setPreferredSize(new java.awt.Dimension(308, 368));
         propertiesPanel1.setVisible(false);
 
         channel2.setPreferredSize(new java.awt.Dimension(160, 679));
 
-        propertiesPanel2.setPreferredSize(new java.awt.Dimension(308, 368));
         propertiesPanel2.setVisible(false);
 
         channel3.setPreferredSize(new java.awt.Dimension(160, 679));
 
-        propertiesPanel3.setPreferredSize(new java.awt.Dimension(308, 368));
         propertiesPanel3.setVisible(false);
 
         channel4.setPreferredSize(new java.awt.Dimension(160, 679));
 
-        propertiesPanel4.setPreferredSize(new java.awt.Dimension(308, 368));
         propertiesPanel4.setVisible(false);
 
         channel5.setPreferredSize(new java.awt.Dimension(160, 679));
@@ -293,9 +289,7 @@ public class VideoMixerLite extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(coreProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(coreProperties1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,9 +298,8 @@ public class VideoMixerLite extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(coreProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(coreProperties1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);

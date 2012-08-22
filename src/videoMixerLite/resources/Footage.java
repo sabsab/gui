@@ -37,9 +37,11 @@ public class Footage extends javax.swing.JPanel {
     
     
     
+    public Effect[] effect;
+    
     private static JFileChooser fc = new JFileChooser();
     
-    private Core core;
+    public Core core;
     
     public GLTexture tex;
     
@@ -106,6 +108,8 @@ public class Footage extends javax.swing.JPanel {
         
         
         jButton1.setEnabled(true);
+        
+        effect = new Effect[0];
     }
     
     
@@ -525,6 +529,41 @@ public class Footage extends javax.swing.JPanel {
         footageProperties.setActive(active);
     }
 
+    
+    public void addEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length + 1];
+        /*
+        for(int i = 0; i < temp.length; i++)
+        {
+            effect[i] = temp[i];
+        }
+        */
+        System.arraycopy(temp, 0, effect, 0, temp.length);
+        effect[temp.length] = eff;
+        
+        //System.out.println("Footage addEffect: " + effect.length);
+    }
+    
+    
+    public void removeEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length - 1];
+        int j = 0;
+        for(int i = 0; i < temp.length; i++)
+        {
+          if(temp[i] != eff)
+          {
+            effect[j++] = temp[i];
+          }
+        }
+        
+        //System.out.println("Footage removeEffect: " + effect.length);
+    }
+    
+    
     
     
     /** This method is called from within the constructor to

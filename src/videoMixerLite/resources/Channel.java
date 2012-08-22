@@ -31,6 +31,8 @@ public class Channel extends javax.swing.JPanel {
     
     private Footage[] footage;
     
+    public Effect[] effect;
+    
     public Footage footageSelected;
     
     private Preview preview;
@@ -72,10 +74,7 @@ public class Channel extends javax.swing.JPanel {
         channelProperties = new ChannelProperties();
         channelProperties.init(this);
     }
-    
-    
-    
-    
+
     
     public void setPreview()
     {
@@ -176,7 +175,11 @@ public class Channel extends javax.swing.JPanel {
             footage[i].init(this);
         }
         
+        
+        effect = new Effect[0];
+        
     }
+    
     
     
     public void redraw()
@@ -261,6 +264,46 @@ public class Channel extends javax.swing.JPanel {
         }
     }
     */
+    
+    
+    
+    public void addEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length + 1];
+        /*
+        for(int i = 0; i < temp.length; i++)
+        {
+            effect[i] = temp[i];
+        }
+        */
+        System.arraycopy(temp, 0, effect, 0, temp.length);
+        effect[temp.length] = eff;
+        
+        //System.out.println("Channel addEffect: " + effect.length);
+    }
+    
+    
+    public void removeEffect(Effect eff)
+    {
+        Effect[] temp = effect;
+        effect = new Effect[effect.length - 1];
+        int j = 0;
+        for(int i = 0; i < temp.length; i++)
+        {
+          if(temp[i] != eff)
+          {
+            effect[j++] = temp[i];
+          }
+        }
+        
+        //System.out.println("Channel removeEffect: " + effect.length);
+    }
+    
+    
+    
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.

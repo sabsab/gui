@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class FootageProperties extends javax.swing.JPanel {
     
     
-    private Footage footage;
+    public Footage footage;
     private JPanel emptyPanel = new JPanel();
 
     /** Creates new form FootageProperties */
@@ -31,6 +31,8 @@ public class FootageProperties extends javax.swing.JPanel {
     {
         this.footage = footage;
         clearPanel();
+        
+        effectsPanel1.init(this);
     }
     
     public void setPanel(JPanel panel)
@@ -65,6 +67,7 @@ public class FootageProperties extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        effectsPanel1 = new videoMixerLite.resources.EffectsPanel();
 
         jButton1.setText("Open");
         jButton1.setFocusable(false);
@@ -93,6 +96,7 @@ public class FootageProperties extends javax.swing.JPanel {
                 .addComponent(jButton2)
                 .addContainerGap(115, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+            .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +106,9 @@ public class FootageProperties extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,6 +123,7 @@ public class FootageProperties extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private videoMixerLite.resources.EffectsPanel effectsPanel1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
