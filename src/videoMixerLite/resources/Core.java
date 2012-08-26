@@ -35,13 +35,13 @@ public class Core extends PApplet
     
     private Effect[] effect;
     
-    private GLTextureFilter[] filterEffect = new GLTextureFilter[1];
+    private GLTextureFilter[] filterEffect = new GLTextureFilter[2];
     
     
     private GLTextureFilter filterMask;
     private GLTextureFilter[] filterBlend = new GLTextureFilter[27];
     
-    private GLTexture texEmpty, texBG, texBase, texMasked, texResult;//texOutput;
+    private GLTexture texEmpty, texBG, texBase, texMasked, texResult;//, texOutput;
     private GLTexture[] texMask = new GLTexture[2];
     private GLTexture[] texBlend = new GLTexture[2];
     
@@ -125,7 +125,7 @@ public class Core extends PApplet
         
         
         filterEffect[0] = new GLTextureFilter(this, "effects/RGBA.xml");
-        
+        filterEffect[1] = new GLTextureFilter(this, "effects/GreyScale.xml");
         
         
         
@@ -145,6 +145,7 @@ public class Core extends PApplet
         texBase = new GLTexture(this);
         texResult = new GLTexture(this, 1280, 320);
         texMasked = new GLTexture(this, 1280, 320);
+        //texOutput = new GLTexture(this, 1280, 320);
         
         
         
@@ -187,7 +188,7 @@ public class Core extends PApplet
         
         
         texWin = new GLTextureWindow_New2(this, 1050, 0, 320, 180);
-        texWin.setTexture(texResult);
+        texWin.setTexture(texResult/*texOutput*/);
         //texWin.hide();
         
         /*
@@ -354,14 +355,20 @@ public class Core extends PApplet
                 //System.out.println(f.effect.length);
                 for(int j=0; j<f.effect.length; j++)
                 {
-                    f.effect[j].getFilterEffect().apply(texResult, texResult);
+                    if(f.effect[j].isEnabled)
+                    {
+                        f.effect[j].getFilterEffect().apply(texResult, texResult);
+                    }
                 }
                 
                 
                 //System.out.println(ch.effect.length);
                 for(int j=0; j<ch.effect.length; j++)
                 {
-                    ch.effect[j].getFilterEffect().apply(texResult, texResult);
+                    if(ch.effect[j].isEnabled)
+                    {
+                        ch.effect[j].getFilterEffect().apply(texResult, texResult);
+                    }
                 }
                 
                 
@@ -371,12 +378,30 @@ public class Core extends PApplet
         
         for(int j=0; j<effect.length; j++)
         {
-            effect[j].getFilterEffect().apply(texResult, texResult);
+            if(effect[j].isEnabled)
+            {
+                effect[j].getFilterEffect().apply(texResult, texResult);
+            }
         }
+        
+        
+        
+        
+        //image(texResult, 0, 0, w, h);
+        
+        
+        texBlend[0] = texBG;
+        texBlend[1] = texResult;
+        filterBlend[0].setParameterValue("Opacity", (float)1);
+        filterBlend[0].apply(texBlend, texResult);
         
         image(texResult, 0, 0, w, h);
         
+        //texOutput.copy(texResult);
+        //image(texOutput, 0, 0, w, h);
         
+        //texOutput.putPixelsIntoTexture(get());
+        //texOutput.putImage(get());
         
     }
     

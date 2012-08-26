@@ -22,6 +22,9 @@ public class Effect extends javax.swing.JPanel {
     
     private EffectsPanel effectsPanel;
     
+    
+    public boolean isEnabled = true;
+    
     //private Core core;
     
     //private GLTextureFilter filterEffect;
@@ -30,8 +33,8 @@ public class Effect extends javax.swing.JPanel {
     //private int effectNum;
     
     
-    private videoMixerLite.resources.effects.rgba rgba;
-    
+    private videoMixerLite.resources.effects.RGBA rgba;
+    private videoMixerLite.resources.effects.GreyScale greyScale;
     
     /** Creates new form Effect */
     public Effect() {
@@ -69,11 +72,16 @@ public class Effect extends javax.swing.JPanel {
         
         if(effectNum == 0)
         {
-            rgba = new videoMixerLite.resources.effects.rgba();
+            rgba = new videoMixerLite.resources.effects.RGBA();
             rgba.init(this, filterEffect);
             jScrollPane1.setViewportView(rgba);
         }
-        
+        else if(effectNum == 1)
+        {
+            greyScale = new videoMixerLite.resources.effects.GreyScale();
+            greyScale.init(this, filterEffect);
+            jScrollPane1.setViewportView(greyScale);
+        }
         
         
     }
@@ -84,6 +92,10 @@ public class Effect extends javax.swing.JPanel {
         if(rgba != null)
         {
             rgba.setParameters();
+        }
+        else if(greyScale != null)
+        {
+            greyScale.setParameters();
         }
         
         return filterEffect;
@@ -100,23 +112,33 @@ public class Effect extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(32767, 100));
         setPreferredSize(new java.awt.Dimension(204, 100));
 
-        jButton1.setText("Remove Effect");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel1.setText(" ");
+
+        jCheckBox1.setSelected(true);
+        jCheckBox1.setText("Enabled");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Remove");
+        jButton1.setMargin(new java.awt.Insets(2, 5, 2, 5));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12));
-        jLabel1.setText(" ");
 
         jScrollPane1.setBorder(null);
 
@@ -124,13 +146,15 @@ public class Effect extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +162,8 @@ public class Effect extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jCheckBox1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
         );
@@ -149,8 +174,14 @@ public class Effect extends javax.swing.JPanel {
         effectsPanel.removeEffect(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+
+        isEnabled = jCheckBox1.isSelected();
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

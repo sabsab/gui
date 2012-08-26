@@ -2,7 +2,7 @@
     <description>RGBA Color Correction</description>
     <fragment>RGBA.glsl</fragment>
     <textures input="1" output="1">
-        <intexture type="sampler2d" name="bottomSampler" label="source">0</intexture>
+        <intexture type="sampler2d" name="inputSampler" label="source">0</intexture>
     </textures>
     <parameter type="int" name="ChannelR" label="ChannelR">1</parameter>
     <parameter type="int" name="ChannelG" label="ChannelG">1</parameter>

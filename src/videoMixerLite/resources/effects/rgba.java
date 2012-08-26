@@ -4,7 +4,7 @@
  */
 
 /*
- * rgba.java
+ * RGBA.java
  *
  * Created on 18.08.2012, 8:21:30
  */
@@ -16,10 +16,9 @@ import codeanticode.glgraphics.GLTextureFilter;
  *
  * @author User
  */
-public class rgba extends javax.swing.JPanel {
+public class RGBA extends javax.swing.JPanel {
 
     private videoMixerLite.resources.Effect effect;
-    
     private GLTextureFilter filterEffect;
     
     private int channelR = 1;
@@ -28,8 +27,8 @@ public class rgba extends javax.swing.JPanel {
     private int channelA = 1;
     
     
-    /** Creates new form rgba */
-    public rgba() {
+    /** Creates new form RGBA */
+    public RGBA() {
         initComponents();
     }
     
