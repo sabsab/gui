@@ -49,7 +49,7 @@ public class CoreProperties extends javax.swing.JPanel {
         outputProperties[11] = outputProperties12;
         
         
-        /*
+        
         outputProperties[0].init(core, "Output 1", 0,   0, 320, 180,    0, 0, 800, 600);
         outputProperties[1].init(core, "Output 2", 320, 0, 320, 180,  800, 0, 800, 600);
         outputProperties[2].init(core, "Output 3", 640, 0, 320, 180, 1600, 0, 800, 600);
@@ -65,7 +65,7 @@ public class CoreProperties extends javax.swing.JPanel {
         outputProperties[9].init(core,  "Output 10", 0,   540, 320, 180,    0, 1800, 800, 600);
         outputProperties[10].init(core, "Output 11", 320, 540, 320, 180,  800, 1800, 800, 600);
         outputProperties[11].init(core, "Output 12", 640, 540, 320, 180, 1600, 1800, 800, 600);
-        */
+        
         
         /*
         outputProperties[0].init(core, "Output 1", 1920, 0, 640, 480,    0, 0, 800, 600);
@@ -104,7 +104,7 @@ public class CoreProperties extends javax.swing.JPanel {
         
         
         
-        
+        /*
         outputProperties[0].init(core, "Output 1", 1920, 0, 1024, 768,    0, 0, 800, 600);
         outputProperties[1].init(core, "Output 2", 2944, 0, 1024, 768,  800, 0, 800, 600);
         outputProperties[2].init(core, "Output 3", 3968, 0, 1024, 768, 1600, 0, 800, 600);
@@ -120,7 +120,7 @@ public class CoreProperties extends javax.swing.JPanel {
         outputProperties[9].init(core,  "Output 10", 1920, 2304, 1024, 768,    0, 1800, 800, 600);
         outputProperties[10].init(core, "Output 11", 2944, 2304, 1024, 768,  800, 1800, 800, 600);
         outputProperties[11].init(core, "Output 12", 3968, 2304, 1024, 768, 1600, 1800, 800, 600);
-        
+        */
         /*
         outputProperties[0].init(core, "Output 1", 1920, 0, 1152, 864,    0, 0, 800, 600);
         outputProperties[1].init(core, "Output 2", 3072, 0, 1152, 864,  800, 0, 800, 600);

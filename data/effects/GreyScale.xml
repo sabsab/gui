@@ -1,0 +1,10 @@
+<filter name="RGBA">
+    <description>GreyScale</description>
+    <fragment>GreyScale.glsl</fragment>
+    <textures input="1" output="1">
+        <intexture type="sampler2d" name="inputSampler" label="source">0</intexture>
+    </textures>
+    <parameter type="float" name="scale" label="Scale">1.0</parameter>
+</filter>
+
+
