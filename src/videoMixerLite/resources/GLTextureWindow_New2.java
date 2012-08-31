@@ -9,7 +9,7 @@ import codeanticode.glgraphics.*;
 import java.awt.Frame;
 import javax.media.opengl.*;
 import com.sun.opengl.util.FPSAnimator;
-import javax.swing.JInternalFrame;
+//import javax.swing.JInternalFrame;
 /**
  *
  * @author User
@@ -23,7 +23,7 @@ public class GLTextureWindow_New2 extends GLWindow
     protected GLRenderer renderer;
     protected GLCanvas canvas;
     protected Frame frame;
-protected JInternalFrame frm;
+//protected JInternalFrame frm;
     protected GLContext mainContext;
     protected GLCapabilities mainCaps;  
     protected GLTexture outTex;

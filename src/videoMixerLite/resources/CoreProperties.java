@@ -19,6 +19,10 @@ public class CoreProperties extends javax.swing.JPanel {
 
     public Core core;
     
+    public OutputProperties[] outputProperties = new OutputProperties[12];
+    
+    
+    
     /** Creates new form CoreProperties */
     public CoreProperties() {
         initComponents();
@@ -29,33 +33,136 @@ public class CoreProperties extends javax.swing.JPanel {
         this.core = core;
         
         effectsPanel1.init(this);
+        
+        
+        outputProperties[0] = outputProperties1;
+        outputProperties[1] = outputProperties2;
+        outputProperties[2] = outputProperties3;
+        outputProperties[3] = outputProperties4;
+        outputProperties[4] = outputProperties5;
+        outputProperties[5] = outputProperties6;
+        outputProperties[6] = outputProperties7;
+        outputProperties[7] = outputProperties8;
+        outputProperties[8] = outputProperties9;
+        outputProperties[9] = outputProperties10;
+        outputProperties[10] = outputProperties11;
+        outputProperties[11] = outputProperties12;
+        
+        
+        /*
+        outputProperties[0].init(core, "Output 1", 0,   0, 320, 180,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 320, 0, 320, 180,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 640, 0, 320, 180, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 0,   180, 320, 180,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 320, 180, 320, 180,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 640, 180, 320, 180, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 0,   360, 320, 180,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 320, 360, 320, 180,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 640, 360, 320, 180, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 0,   540, 320, 180,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 320, 540, 320, 180,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 640, 540, 320, 180, 1600, 1800, 800, 600);
+        */
+        
+        /*
+        outputProperties[0].init(core, "Output 1", 1920, 0, 640, 480,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 2560, 0, 640, 480,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 3200, 0, 640, 480, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 1920, 480, 640, 480,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 2560, 480, 640, 480,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 3200, 480, 640, 480, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 1920, 960, 640, 480,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 2560, 960, 640, 480,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 3200, 960, 640, 480, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 1920, 2304, 1440, 480,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 2560, 2304, 1440, 480,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 3200, 2304, 1440, 480, 1600, 1800, 800, 600);
+        */
+        /*
+        outputProperties[0].init(core, "Output 1", 1920, 0, 800, 600,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 2720, 0, 800, 600,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 3520, 0, 800, 600, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 1920, 768, 800, 600,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 2720, 768, 800, 600,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 3520, 768, 800, 600, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 1920, 1536, 800, 600,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 2720, 1536, 800, 600,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 3520, 1536, 800, 600, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 1920, 2304, 800, 600,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 2720, 2304, 800, 600,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 3520, 2304, 800, 600, 1600, 1800, 800, 600);
+        */
+        
+        
+        
+        
+        outputProperties[0].init(core, "Output 1", 1920, 0, 1024, 768,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 2944, 0, 1024, 768,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 3968, 0, 1024, 768, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 1920, 768, 1024, 768,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 2944, 768, 1024, 768,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 3968, 768, 1024, 768, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 1920, 1536, 1024, 768,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 2944, 1536, 1024, 768,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 3968, 1536, 1024, 768, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 1920, 2304, 1024, 768,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 2944, 2304, 1024, 768,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 3968, 2304, 1024, 768, 1600, 1800, 800, 600);
+        
+        /*
+        outputProperties[0].init(core, "Output 1", 1920, 0, 1152, 864,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 3072, 0, 1152, 864,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 4224, 0, 1152, 864, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 1920, 864, 1152, 864,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 3072, 864, 1152, 864,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 4224, 864, 1152, 864, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 1920, 1728, 1152, 864,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 3072, 1728, 1152, 864,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 4224, 1728, 1152, 864, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 1920, 2592, 1152, 864,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 3072, 2592, 1152, 864,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 4224, 2592, 1152, 864, 1600, 1800, 800, 600);
+        */
+        
+        /*
+        outputProperties[0].init(core, "Output 1", 1920, 0, 1280, 960,    0, 0, 800, 600);
+        outputProperties[1].init(core, "Output 2", 3200, 0, 1280, 960,  800, 0, 800, 600);
+        outputProperties[2].init(core, "Output 3", 4480, 0, 1280, 960, 1600, 0, 800, 600);
+        
+        outputProperties[3].init(core, "Output 4", 1920, 960, 1280, 960,    0, 600, 800, 600);
+        outputProperties[4].init(core, "Output 5", 3200, 960, 1280, 960,  800, 600, 800, 600);
+        outputProperties[5].init(core, "Output 6", 4480, 960, 1280, 960, 1600, 600, 800, 600);
+        
+        outputProperties[6].init(core, "Output 7", 1920, 1920, 1280, 960,    0, 1200, 800, 600);
+        outputProperties[7].init(core, "Output 8", 3200, 1920, 1280, 960,  800, 1200, 800, 600);
+        outputProperties[8].init(core, "Output 9", 4480, 1920, 1280, 960, 1600, 1200, 800, 600);
+        
+        outputProperties[9].init(core,  "Output 10", 1920, 2880, 1280, 960,    0, 1800, 800, 600);
+        outputProperties[10].init(core, "Output 11", 3200, 2880, 1280, 960,  800, 1800, 800, 600);
+        outputProperties[11].init(core, "Output 12", 4480, 2880, 1280, 960, 1600, 1800, 800, 600);
+        */
     }
     
     /*
-    private String integerValidator(String str) 
+    public void setOutputProperties()
     {
-        String outString = "";
-        StringCharacterIterator iterator = new StringCharacterIterator(str);
-        char character = iterator.current();
-        while (character != StringCharacterIterator.DONE) 
-        {
-            boolean isValidChar = Character.isDigit(character) || character == '-';
-            
-            if(isValidChar)
-            {
-                outString += character;
-            }
-            
-            character = iterator.next();
-        }
-        
-        if("-".equals(outString))
-        {
-            outString = "0";
-        }
-        
-        return outString;
-    } 
+        outputProperties[0] = outputProperties_1;
+    }
     */
     
 
@@ -68,175 +175,103 @@ public class CoreProperties extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         effectsPanel1 = new videoMixerLite.resources.EffectsPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        outputProperties1 = new videoMixerLite.resources.OutputProperties();
+        outputProperties2 = new videoMixerLite.resources.OutputProperties();
+        outputProperties3 = new videoMixerLite.resources.OutputProperties();
+        outputProperties4 = new videoMixerLite.resources.OutputProperties();
+        outputProperties5 = new videoMixerLite.resources.OutputProperties();
+        outputProperties6 = new videoMixerLite.resources.OutputProperties();
+        outputProperties7 = new videoMixerLite.resources.OutputProperties();
+        outputProperties8 = new videoMixerLite.resources.OutputProperties();
+        outputProperties9 = new videoMixerLite.resources.OutputProperties();
+        outputProperties10 = new videoMixerLite.resources.OutputProperties();
+        outputProperties11 = new videoMixerLite.resources.OutputProperties();
+        outputProperties12 = new videoMixerLite.resources.OutputProperties();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jTextField4.setText("180");
-        jTextField4.setEnabled(false);
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("Height");
-
-        jTextField3.setText("320");
-        jTextField3.setEnabled(false);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Y");
-
-        jTextField2.setText("0");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
-            }
-        });
-
-        jCheckBox1.setText("Show Output");
-        jCheckBox1.setFocusable(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("X");
-
-        jLabel3.setText("Width");
-
-        jTextField1.setText("1050");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField1FocusLost(evt);
-            }
-        });
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(55, Short.MAX_VALUE))
+            .addComponent(outputProperties12, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties11, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties10, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties9, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties8, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties7, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties6, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties5, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties4, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties3, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties2, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(outputProperties1, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(outputProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(outputProperties2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputProperties12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+            .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+                .addComponent(effectsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-
-        core.showOutput(jCheckBox1.isSelected());
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-
-        Integer x = core.integerValidator(jTextField1.getText());
-        core.outputSetX(x);
-        jTextField1.setText(x.toString());
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-
-        Integer x = core.integerValidator(jTextField1.getText());
-        core.outputSetX(x);
-        jTextField1.setText(x.toString());
-    }//GEN-LAST:event_jTextField1FocusLost
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-
-        Integer y = core.integerValidator(jTextField2.getText());
-        core.outputSetY(y);
-        jTextField2.setText(y.toString());
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-
-        Integer y = core.integerValidator(jTextField2.getText());
-        core.outputSetY(y);
-        jTextField2.setText(y.toString());
-    }//GEN-LAST:event_jTextField2FocusLost
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private videoMixerLite.resources.EffectsPanel effectsPanel1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private videoMixerLite.resources.OutputProperties outputProperties1;
+    private videoMixerLite.resources.OutputProperties outputProperties10;
+    private videoMixerLite.resources.OutputProperties outputProperties11;
+    private videoMixerLite.resources.OutputProperties outputProperties12;
+    private videoMixerLite.resources.OutputProperties outputProperties2;
+    private videoMixerLite.resources.OutputProperties outputProperties3;
+    private videoMixerLite.resources.OutputProperties outputProperties4;
+    private videoMixerLite.resources.OutputProperties outputProperties5;
+    private videoMixerLite.resources.OutputProperties outputProperties6;
+    private videoMixerLite.resources.OutputProperties outputProperties7;
+    private videoMixerLite.resources.OutputProperties outputProperties8;
+    private videoMixerLite.resources.OutputProperties outputProperties9;
     // End of variables declaration//GEN-END:variables
 }

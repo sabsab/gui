@@ -14,9 +14,6 @@ import processing.core.*;
 import codeanticode.glgraphics.*;
 import codeanticode.gsvideo.*;
 import java.text.StringCharacterIterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import javax.swing.JFrame;
 
 
 public class Core extends PApplet 
@@ -25,12 +22,6 @@ public class Core extends PApplet
     
     private int w = 100, h = 100;
     
-    /*
-    private int outX = 1050;
-    private int outY = 0;
-    private int outWidth = 320;
-    private int outHeight = 180;
-    */
     
     
     private Effect[] effect;
@@ -41,25 +32,20 @@ public class Core extends PApplet
     private GLTextureFilter filterMask;
     private GLTextureFilter[] filterBlend = new GLTextureFilter[27];
     
-    private GLTexture texEmpty, texBG, texBase, texMasked, texResult;//, texOutput;
+    private GLTexture texEmpty, texBG, texBase, texMasked, texResult;
     private GLTexture[] texMask = new GLTexture[2];
     private GLTexture[] texBlend = new GLTexture[2];
+    
+    
+    //private GLGraphicsOffScreen offscreen;
     
     public VideoMixerLite parent;
     
     private CoreProperties coreProperties;
     
     
-    private JFrame outputFrame;
-    /*
-    private GLTextureCanvas outputCanvas;
-    */
     
-    private GLTextureWindow_New2 texWin;
-    
-    private Timer timer;
-    
-    public Core(VideoMixerLite parent, int w, int h)
+    public Core(VideoMixerLite parent, int w, int h, CoreProperties cp)
     {
         this.parent = parent;
         channel = parent.channel;
@@ -67,18 +53,10 @@ public class Core extends PApplet
         this.w = w;
         this.h = h;
         
-        coreProperties = new CoreProperties();
-        //parent.setProperties(coreProperties);
+        coreProperties = cp;
     }
     
     
-    /*
-    public void setCoreSize(int w, int h)
-    {
-        this.w = w;
-        this.h = h;
-    }
-    */
     
     @Override
     public void setup()
@@ -90,6 +68,8 @@ public class Core extends PApplet
         
         //System.out.println("Put \"data\" folder here ---->  " + this.sketchPath);
         
+        
+        //offscreen = new GLGraphicsOffScreen(this, 800, 600);
         
         
         effect = new Effect[0];
@@ -143,13 +123,22 @@ public class Core extends PApplet
         texEmpty = new GLTexture(this);
         texBG = new GLTexture(this);
         texBase = new GLTexture(this);
+        /*
         texResult = new GLTexture(this, 1280, 320);
         texMasked = new GLTexture(this, 1280, 320);
-        //texOutput = new GLTexture(this, 1280, 320);
+        
         
         
         
         PImage imgBG = createImage(1280, 320, RGB);
+        */
+        texResult = new GLTexture(this, 2400, 2400);
+        texMasked = new GLTexture(this, 2400, 2400);
+        
+        
+        
+        
+        PImage imgBG = createImage(2400, 2400, RGB);
         imgBG.loadPixels();
         for (int i = 0; i < imgBG.pixels.length; i++) 
         {
@@ -168,112 +157,8 @@ public class Core extends PApplet
         
         coreProperties.init(this);
         
-        
-        
-        
-        
-        
-       // outputCanvas GLTextureCanvas = new GLTextureCanvas(this);
-        /*
-        outputCanvas.setTexture(texResult);
-        
-        outputFrame = new JFrame();
-        outputFrame.setVisible(true);
-        outputFrame.getContentPane().add(outputCanvas.getCanvas());
-        
-        timer = new Timer();
-        timer.schedule(new outputCanvasReadyWait(), 1);
-        */
-        
-        
-        
-        texWin = new GLTextureWindow_New2(this, 1050, 0, 320, 180);
-        texWin.setTexture(texResult/*texOutput*/);
-        //texWin.hide();
-        
-        /*
-        outputFrame = new JFrame();
-        outputFrame.setVisible(true);
-        outputFrame.setSize(320, 180);
-        outputFrame.setLocation(1000, 0);
-        //outputFrame.getContentPane().add(texWin.getFrm());
-        //System.out.println(outputFrame.isActive());
-        timer = new Timer();
-        timer.schedule(new frmReadyWait(), 1);
-        */
-        
-        
-        timer = new Timer();
-        timer.schedule(new texWinReadyWait(), 1);
-        
-        
     }
     
-    
-    /*
-    class frmReadyWait extends TimerTask
-    {
-        @Override
-        public void run()
-        {
-            timer.cancel();
-            if(outputFrame.isActive())
-            {
-                outputFrame.getContentPane().add(texWin.getFrm());
-            }
-            else
-            {
-                timer = new Timer();
-                timer.schedule(new frmReadyWait(), 1);
-            }
-            
-        }
-    }
-    */
-    
-    
-    class texWinReadyWait extends TimerTask
-    {
-        @Override
-        public void run()
-        {
-            timer.cancel();
-            if(texWin.isInitialized())
-            {
-                //System.out.println("texWin Ready");
-                texWin.hide();
-            }
-            else
-            {
-                timer = new Timer();
-                timer.schedule(new texWinReadyWait(), 1);
-            }
-        }
-    }
-    
-    
-    /*
-    class outputCanvasReadyWait extends TimerTask
-    {
-        @Override
-        public void run()
-        {
-            //System.out.println("outputCanvas " + outputCanvas.isInitialized());
-            timer.cancel();
-            
-            if(outputCanvas.isInitialized())
-            {
-                //outputFrame.setVisible(false);
-            }
-            else
-            {
-                timer = new Timer();
-                timer.schedule(new outputCanvasReadyWait(), 1);
-            }
-            
-        }
-    }
-    */
     
     
     @Override
@@ -282,10 +167,8 @@ public class Core extends PApplet
         
         background(0);
         
-        texBase = texEmpty;//texBG;
-        //texResult.clear(0);// = texBG;
+        texBase = texEmpty;
         texResult.copy(texBG);
-        //texResult.copy(texEmpty);
         
         
         for(int i=0; i<channel.length; i++)
@@ -301,7 +184,6 @@ public class Core extends PApplet
         {
             
             Channel ch = channel[i];
-            //ch.redraw();
             
             
             
@@ -384,66 +266,47 @@ public class Core extends PApplet
             }
         }
         
+        if(channel[channel.length-1].isMaskOutput)
+        {
+            texBlend[0] = texBG;
+            texBlend[1] = texResult;
+            filterBlend[0].setParameterValue("Opacity", (float)1);
+            filterBlend[0].apply(texBlend, texResult);
+        }
         
+        /*
+        coreProperties.outputProperties[0].redraw(texResult);
+        coreProperties.outputProperties[1].redraw(texResult);
+        coreProperties.outputProperties[2].redraw(texResult);
+        coreProperties.outputProperties[3].redraw(texResult);
+        coreProperties.outputProperties[4].redraw(texResult);
+        coreProperties.outputProperties[5].redraw(texResult);
+        coreProperties.outputProperties[6].redraw(texResult);
+        coreProperties.outputProperties[7].redraw(texResult);
+        coreProperties.outputProperties[8].redraw(texResult);
+        /*
+        coreProperties.outputProperties[9].redraw(texResult);
+        coreProperties.outputProperties[10].redraw(texResult);
+        coreProperties.outputProperties[11].redraw(texResult);
+        */
         
+        OutputProperties out[] = coreProperties.outputProperties;
         
-        //image(texResult, 0, 0, w, h);
+        for(int i=0; i<out.length; i++)
+        {
+            /*
+            if(out[i].isDisplayed)
+            {
+                out[i].redraw(texResult);
+            }
+            */
+            out[i].redraw(texResult);
+        }
         
-        
-        texBlend[0] = texBG;
-        texBlend[1] = texResult;
-        filterBlend[0].setParameterValue("Opacity", (float)1);
-        filterBlend[0].apply(texBlend, texResult);
         
         image(texResult, 0, 0, w, h);
-        
-        //texOutput.copy(texResult);
-        //image(texOutput, 0, 0, w, h);
-        
-        //texOutput.putPixelsIntoTexture(get());
-        //texOutput.putImage(get());
-        
     }
     
-    public void showOutput(boolean bln)
-    {
-        /*
-        outputFrame.setSize(320, 180);
-        outputFrame.setVisible(visible);
-        */
-        if(bln)
-        {
-            texWin.show();
-            //texWin.initImpl(1050, 0, w, h);
-            
-            redraw();
-        }
-        else
-        {
-            texWin.hide();
-        }
-    }
-    
-    
-    
-    public void outputSetX(int value)
-    {
-        texWin.setLocation(value, texWin.getY());
-    }
-    
-    
-    public void outputSetY(int value)
-    {
-        texWin.setLocation(texWin.getX(), value);
-    }
-    
-    
-    /*
-    public void outputSetSize(int w, int h)
-    {
-        
-    }
-    */
     
     public void movieEvent(GSMovie movie)
     {
@@ -464,16 +327,8 @@ public class Core extends PApplet
     {
         Effect[] temp = effect;
         effect = new Effect[effect.length + 1];
-        /*
-        for(int i = 0; i < temp.length; i++)
-        {
-            effect[i] = temp[i];
-        }
-        */
         System.arraycopy(temp, 0, effect, 0, temp.length);
         effect[temp.length] = eff;
-        
-        //System.out.println("Core addEffect: " + effect.length);
     }
     
     
@@ -489,37 +344,7 @@ public class Core extends PApplet
             effect[j++] = temp[i];
           }
         }
-        
-        //System.out.println("Core removeEffect: " + effect.length);
     }
     
-    
-    
-    
-    
-    public Integer integerValidator(String str) 
-    {
-        String outString = "";
-        StringCharacterIterator iterator = new StringCharacterIterator(str);
-        char character = iterator.current();
-        while (character != StringCharacterIterator.DONE) 
-        {
-            boolean isValidChar = Character.isDigit(character) || character == '-';
-            
-            if(isValidChar)
-            {
-                outString += character;
-            }
-            
-            character = iterator.next();
-        }
-        
-        if("-".equals(outString))
-        {
-            outString = "0";
-        }
-        
-        return Integer.parseInt(outString);
-    } 
     
 }

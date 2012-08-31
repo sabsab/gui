@@ -74,12 +74,14 @@ public class VideoMixerLite extends javax.swing.JFrame {
             channel[i].setPreview();
         }
         
-        core = new Core(this, displayPanel.getWidth(), displayPanel.getHeight());
+        core = new Core(this, displayPanel.getWidth(), displayPanel.getHeight(), coreProperties1);
         //core.setCoreSize(displayPanel.getWidth(), displayPanel.getHeight());
         displayPanel.add(core);
         core.init();
         
-        coreProperties1.init(core);
+        //coreProperties1.init(core);
+        
+        //repaint();
         
     }
     
@@ -257,6 +259,7 @@ public class VideoMixerLite extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         displayPanel.setBackground(new java.awt.Color(64, 64, 64));
+        displayPanel.setPreferredSize(new java.awt.Dimension(275, 275));
 
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
@@ -266,7 +269,7 @@ public class VideoMixerLite extends javax.swing.JFrame {
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 163, Short.MAX_VALUE)
+            .addGap(0, 275, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -299,7 +302,7 @@ public class VideoMixerLite extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(coreProperties1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+                .addComponent(coreProperties1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
