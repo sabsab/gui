@@ -319,8 +319,30 @@ public class OutputProperties extends javax.swing.JPanel {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Crop Width");
 
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField7FocusLost(evt);
+            }
+        });
+
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Crop Height");
+
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField8FocusLost(evt);
+            }
+        });
 
         jCheckBox1.setText("Show Output");
         jCheckBox1.setEnabled(false);
@@ -515,34 +537,106 @@ public class OutputProperties extends javax.swing.JPanel {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
 
         Integer value = integerValidator(jTextField5.getText());
+        if(value > core.coreWidth - cropWidth)
+        {
+            value = core.coreWidth - cropWidth;
+        }
         jTextField5.setText(value.toString());
         
         cropX = value;
+        core.redraw();
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
 
         Integer value = integerValidator(jTextField5.getText());
+        if(value > core.coreWidth - cropWidth)
+        {
+            value = core.coreWidth - cropWidth;
+        }
         jTextField5.setText(value.toString());
         
         cropX = value;
+        core.redraw();
     }//GEN-LAST:event_jTextField5FocusLost
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
 
         Integer value = integerValidator(jTextField6.getText());
+        if(value > core.coreHeight - cropHeight)
+        {
+            value = core.coreHeight - cropHeight;
+        }
         jTextField6.setText(value.toString());
         
         cropY = value;
+        core.redraw();
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
 
         Integer value = integerValidator(jTextField6.getText());
+        if(value > core.coreHeight - cropHeight)
+        {
+            value = core.coreHeight - cropHeight;
+        }
         jTextField6.setText(value.toString());
         
         cropY = value;
+        core.redraw();
     }//GEN-LAST:event_jTextField6FocusLost
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+
+        Integer value = integerValidator(jTextField7.getText());
+        if(value > core.coreWidth - cropX)
+        {
+            value = core.coreWidth - cropX;
+        }
+        jTextField7.setText(value.toString());
+        
+        cropWidth = value;
+        core.redraw();
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+
+        Integer value = integerValidator(jTextField7.getText());
+        if(value > core.coreWidth - cropX)
+        {
+            value = core.coreWidth - cropX;
+        }
+        jTextField7.setText(value.toString());
+        
+        cropWidth = value;
+        core.redraw();
+    }//GEN-LAST:event_jTextField7FocusLost
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+
+        Integer value = integerValidator(jTextField8.getText());
+        if(value > core.coreHeight - cropY)
+        {
+            value = core.coreHeight - cropY;
+        }
+        jTextField8.setText(value.toString());
+        
+        cropHeight = value;
+        core.redraw();
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
+
+        Integer value = integerValidator(jTextField8.getText());
+        if(value > core.coreHeight - cropY)
+        {
+            value = core.coreHeight - cropY;
+        }
+        jTextField8.setText(value.toString());
+        
+        cropHeight = value;
+        core.redraw();
+    }//GEN-LAST:event_jTextField8FocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

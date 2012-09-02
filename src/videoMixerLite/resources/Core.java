@@ -13,7 +13,7 @@ package videoMixerLite.resources;
 import processing.core.*;
 import codeanticode.glgraphics.*;
 import codeanticode.gsvideo.*;
-import java.text.StringCharacterIterator;
+//import java.text.StringCharacterIterator;
 
 
 public class Core extends PApplet 
@@ -22,7 +22,8 @@ public class Core extends PApplet
     
     private int w = 100, h = 100;
     
-    
+    public int coreWidth = 2400;
+    public int coreHeight = 2400;
     
     private Effect[] effect;
     
@@ -132,13 +133,13 @@ public class Core extends PApplet
         
         PImage imgBG = createImage(1280, 320, RGB);
         */
-        texResult = new GLTexture(this, 2400, 2400);
-        texMasked = new GLTexture(this, 2400, 2400);
+        texResult = new GLTexture(this, coreWidth, coreHeight);
+        texMasked = new GLTexture(this, coreWidth, coreHeight);
         
         
         
         
-        PImage imgBG = createImage(2400, 2400, RGB);
+        PImage imgBG = createImage(coreWidth, coreHeight, RGB);
         imgBG.loadPixels();
         for (int i = 0; i < imgBG.pixels.length; i++) 
         {
