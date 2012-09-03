@@ -20,6 +20,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 //import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -263,7 +264,9 @@ public class Footage extends javax.swing.JPanel {
         t.getImage(image);
         */
         
-        
+        ImageIcon icon = new ImageIcon(image.get().getImage());
+        jLabel1.setIcon(icon);
+        jLabel1.revalidate();        
 
         /*Preview */preview = new Preview(92, 50);
         preview.setImage(image);
@@ -356,7 +359,7 @@ public class Footage extends javax.swing.JPanel {
         
         image = null;
         
-        displayPanel.removeAll();
+        //displayPanel.removeAll();
         
         tex = new GLTexture(core);
         
@@ -577,6 +580,7 @@ public class Footage extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setAlignmentX(0.0F);
@@ -586,7 +590,7 @@ public class Footage extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(96, 70));
         setPreferredSize(new java.awt.Dimension(96, 70));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10));
         jButton1.setAlignmentY(0.0F);
         jButton1.setEnabled(false);
         jButton1.setFocusable(false);
@@ -606,15 +610,21 @@ public class Footage extends javax.swing.JPanel {
         displayPanel.setMinimumSize(new java.awt.Dimension(92, 50));
         displayPanel.setPreferredSize(new java.awt.Dimension(92, 50));
 
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
         displayPanelLayout.setHorizontalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -649,8 +659,13 @@ public class Footage extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        select();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel displayPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
